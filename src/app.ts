@@ -1,7 +1,7 @@
+import readline from "readline";
 import { initializeDatabase } from "./databaseConfig";
 import { DatabaseService } from "./databaseService";
 import { MenuCommand } from "./menuCommand";
-import readline from "readline";
 
 export async function bootstrap() {
   const rl = readline.createInterface({
@@ -13,5 +13,5 @@ export async function bootstrap() {
   const databaseService = new DatabaseService(dbConnection);
   const menu = new MenuCommand(rl, databaseService);
 
-  setTimeout(() => menu.mostrarMenu(dbConnection), 500);
+  setTimeout(() => menu.showMenu(dbConnection), 500);
 }

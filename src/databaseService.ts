@@ -77,8 +77,7 @@ export class DatabaseService {
   async getProductWithHighestSaleByBusiness(): Promise<
     { business: string; product: string }[]
   > {
-    const result = await this.dbConnection
-      .query(`select
+    const result = await this.dbConnection.query(`select
       ll.Nombre as business,
       (
       select

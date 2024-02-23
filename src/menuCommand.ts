@@ -4,7 +4,7 @@ import { DatabaseService } from "./databaseService";
 export class MenuCommand {
   constructor(private rl: any, private databaseService: DatabaseService) {}
 
-  async mostrarMenu(db: ConnectionPool) {
+  async showMenu(db: ConnectionPool) {
     console.log("\nElige una opción:");
     console.log("1. Obtener total de ventas de los ultimos 30 dias");
     console.log(
@@ -91,7 +91,7 @@ export class MenuCommand {
             console.log("Opción no válida, intenta de nuevo.");
         }
 
-        await this.mostrarMenu(db);
+        await this.showMenu(db);
       }
     );
   }
