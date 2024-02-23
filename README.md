@@ -4,7 +4,8 @@ Este es el proyecto "Defontana Backend", el cual es parte del backend para el si
 
 ## Comenzando
 
-Sigue estas instrucciones para obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de pruebas.
+Sigue estas instrucciones para obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de pruebas. La aplicacion es de estilo consola,
+al inicializar el programa, te mostrara un menu en consola, con los comandos a ejecutar
 
 ### Prerrequisitos
 
