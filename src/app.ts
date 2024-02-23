@@ -13,5 +13,5 @@ export async function bootstrap() {
   const databaseService = new DatabaseService(dbConnection);
   const menu = new MenuCommand(rl, databaseService);
 
-  setTimeout(() => menu.mostrarMenu(), 500);
+  setTimeout(() => menu.mostrarMenu(dbConnection), 500);
 }

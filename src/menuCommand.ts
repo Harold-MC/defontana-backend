@@ -1,9 +1,10 @@
+import { ConnectionPool } from "mssql";
 import { DatabaseService } from "./databaseService";
 
 export class MenuCommand {
   constructor(private rl: any, private databaseService: DatabaseService) {}
 
-  async mostrarMenu() {
+  async mostrarMenu(db: ConnectionPool) {
     console.log("\nElige una opción:");
     console.log("1. Obtener total de ventas de los ultimos 30 dias");
     console.log(
@@ -67,22 +68,30 @@ export class MenuCommand {
           }
 
           case "6": {
-            const results = await this.databaseService.getProductWithHighestSaleByBusiness();
-            console.log('-----------------------------------------------------')
+            const results =
+              await this.databaseService.getProductWithHighestSaleByBusiness();
+            console.log(
+              "-----------------------------------------------------"
+            );
             results.forEach((item) => {
-              console.log(`Negocio: ${item.business} -> producto: ${item.product}`)
-            })
-            console.log('-----------------------------------------------------')
+              console.log(
+                `Negocio: ${item.business} -> producto: ${item.product}`
+              );
+            });
+            console.log(
+              "-----------------------------------------------------"
+            );
             break;
           }
           case "7":
             this.rl.close();
+            db.close();
             return;
           default:
             console.log("Opción no válida, intenta de nuevo.");
         }
 
-        await this.mostrarMenu();
+        await this.mostrarMenu(db);
       }
     );
   }
